@@ -217,4 +217,179 @@
             margin-bottom: 20px;
             color: var(--primary-color);
             display: flex;
-            align-items:
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gakuchika-text {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 70%, #d4e9f7 70%);
+            font-weight: bold;
+        }
+
+        /* --- Skills Section --- */
+        #skills {
+            background-color: var(--bg-color);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Y.Matsuno Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container hero-content">
+                <h1>Problem Solver,<br>Data Driven.</h1>
+                <p>応用情報工学科在学 | 課題分析と実行力で未来を創る</p>
+                <a href="#about" class="btn">View Profile</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="profile-card">
+                        <div class="profile-icon">Photo</div>
+                        
+                        <div class="profile-name">松野 裕</div>
+                        <div class="profile-name-en">Yutaka Matsuno</div>
+                        
+                        <div class="profile-university">〇〇大学<br>応用情報工学科</div>
+                        <p style="font-size: 0.9rem; color: #7f8c8d; margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+                            Web開発 / データ分析<br>
+                            目標達成に向けたプロセス構築を重視します。
+                        </p>
+                    </div>
+
+                    <div class="gakuchika-box">
+                        <h3 class="gakuchika-title">
+                            🎯 強み：目標達成のための課題分析と実行力
+                        </h3>
+                        <p class="gakuchika-text">
+                            私は、<span class="highlight">目標達成のための課題分析と実行</span>に最も注力してきました。
+                        </p>
+                        <p class="gakuchika-text">
+                            応用情報工学科への進学を目指す上で、判定に重要な基礎学力到達度テストでの「英語」と「国語」の点数不足が大きな課題でした。私は、限られた時間で最大の成果を出すには、まず「基礎的な暗記分野」の克服が最善であると分析しました。そこで、英語は「英単語」、国語は「古語」に学習リソースを集中させる戦略を立てました。
+                        </p>
+                        <p class="gakuchika-text">
+                            学習の質を高めるため、学校配布の教材にこだわらず自分に合う単語帳を主体的に選定しました。また、通学の電車時間を活用して「覚える」と「自分でテストする」という反復学習を徹底しました。
+                        </p>
+                        <p class="gakuchika-text">
+                            この地道な取り組みにより、結果として<span class="highlight">両科目で80点以上を取得</span>し、第一志望である応用情報工学科への進学を果たすことができました。この経験で培った「分析力」と「自律的な学習姿勢」は、現在のエンジニアリング学習においても私の基盤となっています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">HTML / CSS</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">基本情報技術者</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>ポートフォリオをご覧いただきありがとうございます。<br>ご連絡は以下のメールアドレスまでお願いいたします。</p>
+                <div class="contact-info">
+                    <a href="mailto:yutaka.matsuno@example.com" class="btn">メールを送る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Yutaka Matsuno All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
