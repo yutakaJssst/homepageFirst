@@ -7,11 +7,12 @@
     <style>
         /* --- CSS Variables & Reset --- */
         :root {
-            --primary-color: #2c3e50; /* 知的なネイビー */
-            --accent-color: #3498db;  /* 誠実なブルー */
-            --text-color: #333333;
-            --light-text: #7f8c8d;
-            --bg-color: #f8f9fa;
+            /* ▼ 変更箇所: 配色をオレンジ系に変更 ▼ */
+            --primary-color: #e67e22; /* メインカラー：温かみのあるオレンジ */
+            --accent-color: #f39c12;  /* アクセントカラー：明るいキャロットオレンジ */
+            --text-color: #333333;    /* テキスト色（変更なし） */
+            --light-text: #7f8c8d;    /* 薄いテキスト色（変更なし） */
+            --bg-color: #fff9f0;      /* 背景色：非常に薄いオレンジホワイト */
             --white: #ffffff;
             --font-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
         }
@@ -117,7 +118,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, #eef2f3 0%, #ffffff 100%);
+            /* ▼ 変更箇所: 背景グラデーションを暖色系に変更 ▼ */
+            background: linear-gradient(135deg, #fff9f0 0%, #ffeecf 100%);
             padding-top: 70px;
         }
 
@@ -141,7 +143,8 @@
             color: var(--white);
             border-radius: 30px;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+            /* ▼ 変更箇所: 影の色をオレンジ系に合わせて調整 ▼ */
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
         }
 
         .btn:hover {
@@ -227,7 +230,8 @@
         }
 
         .highlight {
-            background: linear-gradient(transparent 70%, #d4e9f7 70%);
+            /* ▼ 変更箇所: 蛍光ペンの色を薄いオレンジに変更 ▼ */
+            background: linear-gradient(transparent 70%, #ffe0b2 70%);
             font-weight: bold;
         }
 
