@@ -7,12 +7,14 @@
     <style>
         /* --- CSS Variables & Reset --- */
         :root {
-            /* ▼ 変更箇所: 配色をオレンジ系に変更 ▼ */
-            --primary-color: #e67e22; /* メインカラー：温かみのあるオレンジ */
-            --accent-color: #f39c12;  /* アクセントカラー：明るいキャロットオレンジ */
-            --text-color: #333333;    /* テキスト色（変更なし） */
-            --light-text: #7f8c8d;    /* 薄いテキスト色（変更なし） */
-            --bg-color: #fff9f0;      /* 背景色：非常に薄いオレンジホワイト */
+            /* ▼ 変更箇所: 船橋カラー（梨＆海）パレット ▼ */
+            --primary-color: #eebb2d; /* メイン：船橋の梨（幸水・豊水）のようなゴールデンイエロー */
+            --accent-color: #3498db;  /* アクセント：三番瀬・東京湾の爽やかなマリンブルー */
+            --highlight-green: #27ae60; /* 差し色：梨の葉のグリーン */
+            
+            --text-color: #5d4037;    /* テキスト：梨の枝のような温かみのあるダークブラウン */
+            --light-text: #8d7b75;    /* 薄いテキスト：グレーではなくブラウングレー */
+            --bg-color: #fffdf5;      /* 背景色：梨の果肉のような非常に薄いクリーム色 */
             --white: #ffffff;
             --font-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
         }
@@ -62,25 +64,30 @@
             color: var(--primary-color);
             letter-spacing: 0.05em;
             position: relative;
+            /* 少し影をつけて文字を浮き立たせる */
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
         }
 
         h2::after {
             content: '';
             display: block;
-            width: 50px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
+            /* 船橋の海を感じさせるブルーのライン */
             background-color: var(--accent-color);
             margin: 15px auto 0;
+            border-radius: 2px;
         }
 
         /* --- Header --- */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(52, 152, 219, 0.1); /* 青みがかった薄い影 */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
         nav {
@@ -96,6 +103,11 @@
             color: var(--primary-color);
             letter-spacing: 0.05em;
         }
+        
+        /* ロゴにちょっとした遊び心（梨アイコン風の丸み） */
+        .logo span {
+            color: var(--accent-color);
+        }
 
         .nav-links {
             display: flex;
@@ -105,10 +117,11 @@
         .nav-links a {
             font-weight: 500;
             font-size: 0.95rem;
+            color: var(--text-color);
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
 
         /* --- Hero Section --- */
@@ -118,8 +131,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* ▼ 変更箇所: 背景グラデーションを暖色系に変更 ▼ */
-            background: linear-gradient(135deg, #fff9f0 0%, #ffeecf 100%);
+            /* ▼ 変更箇所: 海（上）から梨畑（下）へつながるようなグラデーション ▼ */
+            background: linear-gradient(180deg, #e0f7fa 0%, #fff9c4 100%);
             padding-top: 70px;
         }
 
@@ -128,33 +141,40 @@
             margin-bottom: 20px;
             color: var(--primary-color);
             line-height: 1.2;
+            text-shadow: 2px 2px 0 #fff; /* 白縁取りで視認性アップ */
         }
 
         .hero-content p {
             font-size: 1.2rem;
-            color: var(--light-text);
+            color: var(--text-color);
             margin-bottom: 30px;
+            font-weight: 500;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 12px 35px;
             background-color: var(--primary-color);
             color: var(--white);
             border-radius: 30px;
             font-weight: bold;
-            /* ▼ 変更箇所: 影の色をオレンジ系に合わせて調整 ▼ */
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 4px 15px rgba(238, 187, 45, 0.4);
+            border: 2px solid transparent;
         }
 
         .btn:hover {
+            /* ホバー時は海の色（ブルー）に変化 */
             background-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
             transform: translateY(-2px);
         }
 
         /* --- About Section --- */
         #about {
             background-color: var(--white);
+            /* 隠し味：梨の皮のような微細なドットパターン */
+            background-image: radial-gradient(#f9e79f 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         .about-grid {
@@ -162,19 +182,24 @@
             grid-template-columns: 1fr 2fr;
             gap: 40px;
             align-items: start;
+            position: relative;
+            z-index: 1;
         }
 
         .profile-card {
             text-align: center;
-            background: var(--bg-color);
+            background: var(--white);
             padding: 30px;
             border-radius: 12px;
+            /* カードに少し黄色い光彩 */
+            box-shadow: 0 5px 20px rgba(238, 187, 45, 0.15);
+            border: 1px solid #fff3e0;
         }
 
         .profile-icon {
             width: 120px;
             height: 120px;
-            background-color: #ddd; /* 写真がない場合のグレー背景 */
+            background-color: #f0f0f0;
             border-radius: 50%;
             margin: 0 auto 20px;
             display: flex;
@@ -183,9 +208,9 @@
             color: #aaa;
             font-size: 0.9rem;
             overflow: hidden;
+            border: 4px solid var(--primary-color); /* アイコンの周りを梨色で囲む */
         }
         
-        /* 写真を入れる場合はここを調整 */
         .profile-icon img {
             width: 100%;
             height: 100%;
@@ -212,16 +237,24 @@
         }
 
         .gakuchika-box {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--accent-color); /* アクセントに海の色 */
         }
 
         .gakuchika-title {
             font-size: 1.3rem;
             margin-bottom: 20px;
-            color: var(--primary-color);
+            color: var(--text-color);
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+        
+        .gakuchika-title span {
+            color: var(--primary-color); /* アイコンのみ梨色 */
         }
 
         .gakuchika-text {
@@ -230,9 +263,10 @@
         }
 
         .highlight {
-            /* ▼ 変更箇所: 蛍光ペンの色を薄いオレンジに変更 ▼ */
-            background: linear-gradient(transparent 70%, #ffe0b2 70%);
+            /* マーカーの色をフレッシュな梨イエローに */
+            background: linear-gradient(transparent 70%, #fff176 70%);
             font-weight: bold;
+            color: var(--text-color);
         }
 
         /* --- Skills Section --- */
@@ -250,24 +284,29 @@
         .skill-item {
             background: var(--white);
             padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 50px; /* 丸みをつけて果物っぽく */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--text-color);
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: transform 0.2s;
+            transition: transform 0.2s, color 0.2s;
+            border: 1px solid #eee;
         }
         
+        /* スキルホバー時に梨色と葉っぱの緑を感じさせる変化 */
         .skill-item:hover {
             transform: translateY(-3px);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
         }
 
         /* --- Contact Section --- */
         #contact {
             text-align: center;
             background-color: var(--white);
+            border-top: 10px solid var(--accent-color); /* 海の境界線 */
         }
 
         .contact-info {
@@ -276,7 +315,7 @@
 
         /* --- Footer --- */
         footer {
-            background-color: var(--primary-color);
+            background-color: var(--accent-color); /* フッターは海の色で引き締める */
             color: var(--white);
             text-align: center;
             padding: 20px;
@@ -308,7 +347,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Y.Matsuno Portfolio</div>
+                <div class="logo">Y.Matsuno <span>Portfolio</span></div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -339,7 +378,7 @@
                         <div class="profile-name-en">Yutaka Matsuno</div>
                         
                         <div class="profile-university">〇〇大学<br>応用情報工学科</div>
-                        <p style="font-size: 0.9rem; color: #7f8c8d; margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+                        <p style="font-size: 0.9rem; color: var(--light-text); margin-top: 15px; border-top: 1px dashed #ddd; padding-top: 15px;">
                             Web開発 / データ分析<br>
                             目標達成に向けたプロセス構築を重視します。
                         </p>
@@ -347,7 +386,7 @@
 
                     <div class="gakuchika-box">
                         <h3 class="gakuchika-title">
-                            🎯 強み：目標達成のための課題分析と実行力
+                            <span>🎯</span> 強み：目標達成のための課題分析と実行力
                         </h3>
                         <p class="gakuchika-text">
                             私は、<span class="highlight">目標達成のための課題分析と実行</span>に最も注力してきました。
